@@ -5,7 +5,7 @@ object mariano {
 	 
 	method comprar(_golosina) { golosinas.add(_golosina) }
 	
-	method desechar (_golosina) { golosinas.remove(_golosina) }
+	method desechar(_golosina) { golosinas.remove(_golosina) }
 	
 	method golosinas() { return golosinas }
 	method primerGolosina() { return golosinas.first() }
@@ -63,6 +63,17 @@ object mariano {
 	method tieneGolosinaDeSabor(_sabor) {
 		return golosinas.any({_golosina => _golosina.sabor() == _sabor})
 	}
+	
+	method baniar(unaGolosina) {
+		const goloBaniada = new GolosinaBaniada(golosinaInterior = unaGolosina)
+		self.comprar(goloBaniada)
+	}
+	
+	//Pensar, haciendo un diagrama de objetos, qué pasa si:
+		// la golosina ya era parte de la colección - 
+			//Si es el mismo tipo/clase, la agrega - si es una de la lista tendria que cambiar
+			//el método.
+		//se baña una golosina ya bañada - Nada?.
 }
 
 
